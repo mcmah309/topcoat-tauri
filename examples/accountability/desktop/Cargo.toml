@@ -1,0 +1,17 @@
+[package]
+name = "accountability-desktop"
+version = "0.0.1"
+edition = "2024"
+rust-version = "1.98"
+publish = false
+
+[build-dependencies]
+tauri-build = "2"
+
+[dependencies]
+accountability-app.workspace = true
+tauri.workspace = true
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]

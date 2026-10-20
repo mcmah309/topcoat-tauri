@@ -1,0 +1,21 @@
+[package]
+name = "accountability-app"
+version = "0.0.1"
+edition = "2024"
+rust-version = "1.98"
+publish = false
+
+[dependencies]
+declare = "0.1.2"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+topcoat.workspace = true
+tauri.workspace = true
+reqwest = { workspace = true, features = ["json"] }
+topcoat-hybrid.workspace = true
+# The hosted web app serves this UI and its bundled assets.
+topcoat-asset = { version = "=0.10.0", features = ["router", "serve"] }
+
+[dev-dependencies]
+http-body-util = "0.1"
+tokio.workspace = true

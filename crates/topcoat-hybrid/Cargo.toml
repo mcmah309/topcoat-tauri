@@ -1,0 +1,27 @@
+[package]
+name = "topcoat-hybrid"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.98"
+description = "Hosted Topcoat UI with native Rust procedures in Tauri"
+readme = "README.md"
+publish = false
+
+[features]
+session = ["topcoat/session"]
+tracing = ["dep:tracing", "custom-protocol-http/tracing"]
+
+[dependencies]
+bytes = "1"
+http = "1"
+http-body-util = "0.1"
+reqwest.workspace = true
+tauri.workspace = true
+thiserror = "2"
+topcoat.workspace = true
+tower = { version = "0.5", features = ["util"] }
+custom-protocol-http = { git = "https://github.com/chippers/tauri-plugin-topcoat", rev = "e70b235b55db3ca81a4ecf015abe811a770ee661", features = ["tower"] }
+tracing = { version = "0.1", default-features = false, features = ["std", "attributes"], optional = true }
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["net", "io-util"] }

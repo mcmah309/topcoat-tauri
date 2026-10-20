@@ -1,0 +1,11 @@
+[package]
+name = "accountability-web"
+version = "0.0.1"
+edition = "2024"
+rust-version = "1.98"
+publish = false
+
+[dependencies]
+accountability-app.workspace = true
+topcoat = { workspace = true, features = ["serve"] }
+tokio = { workspace = true, features = ["net"] }

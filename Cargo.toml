@@ -1,0 +1,20 @@
+[workspace]
+resolver = "3"
+members = [
+    "crates/topcoat-hybrid",
+    "examples/accountability/app",
+    "examples/accountability/web",
+    "examples/accountability/desktop",
+]
+default-members = ["examples/accountability/web"]
+
+[workspace.dependencies]
+accountability-app = { path = "examples/accountability/app" }
+topcoat-hybrid = { path = "crates/topcoat-hybrid" }
+topcoat = { version = "=0.10.0", default-features = false, features = ["asset", "discover", "router", "runtime", "view"] }
+tokio = { version = "1.53.1", features = ["macros", "rt-multi-thread"] }
+tauri = "2.12.4"
+reqwest = { version = "0.13.5", default-features = false, features = ["rustls"] }
+
+[profile.dev]
+debug = 1
